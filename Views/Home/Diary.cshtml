@@ -1,0 +1,47 @@
+
+<form method="post">
+    <button type="submit" class="btn btn-primary" asp-controller="Home" asp-action="Add">Add</button>
+    <button type="submit" class="btn btn-danger" asp-controller="Home" asp-action="Delete">Delete</button>
+    <input type="submit" asp-controller="Home" asp-action="Index" class="btn btn-primary" value="Cancel" />
+</form>
+
+<div class="row my-2">
+    <div class="col">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>OPD</th>
+                    <th>Date</th>
+                    <th>Patient Name</th>
+                    <th>Mob. Number</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Date of birth</th>
+                    <th>City</th>
+                    <th>Nationality</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.patients) {
+                    @if (item.OPD != 0) {
+                        <tr>
+                            
+                            <td>@item.OPD</td>
+                            <td id="regDate">@item.regDate</td>
+                            <td>@item.fullName</td>
+                            <td>@item.contactNum</td>
+                            <td>@item.email</td>
+                            <td>@item.gender</td>
+                            <td id="dob">@item.dateOfBirth</td>
+                            <td>@item.city</td>
+                            <td>@item.nationality</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
